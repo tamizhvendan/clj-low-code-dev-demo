@@ -7,7 +7,7 @@
 (def movies-list
   {:type :list
    :definition {:table "film"
-                :limit 2
+                :limit 5
                 :attributes [{:name "title"
                               :display-name "Movie Name"}
                              {:name "description"
