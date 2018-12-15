@@ -16,7 +16,29 @@
                               :display-name "Year Relased"}]}})
 
 (def sales-by-category-chart
-  {:type :bar-chart
+  {:type :chart
+   :chart-type "bar"
+   :definition {:table "sales_by_film_category"
+                :x "category"
+                :y "total_sales"}})
+
+(def sales-by-category-line-chart
+  {:type :chart
+   :chart-type "line"
+   :definition {:table "sales_by_film_category"
+                :x "category"
+                :y "total_sales"}})
+
+(def sales-by-category-area-chart
+  {:type :chart
+   :chart-type "area"
+   :definition {:table "sales_by_film_category"
+                :x "category"
+                :y "total_sales"}})
+
+(def sales-by-category-point-chart
+  {:type :chart
+   :chart-type "point"
    :definition {:table "sales_by_film_category"
                 :x "category"
                 :y "total_sales"}})
@@ -30,9 +52,15 @@
                              {:name "address"
                               :display-name "Address"}]}})
 
-(def page-layout [[{:widget movies-list :grid-size 6}
-                   {:widget sales-by-category-chart :grid-size 6}]
-                  [{:widget customers-list :grid-size 12}]])
+; (def page-layout [[{:widget movies-list :grid-size 6}
+;                    {:widget sales-by-category-chart :grid-size 6}]
+;                   [{:widget customers-list :grid-size 6}
+;                    {:widget sales-by-category-area-chart :grid-size 6}]
+;                   [{:widget sales-by-category-line-chart :grid-size 6}
+;                    {:widget sales-by-category-point-chart :grid-size 6}]])
+
+
+(def page-layout [[{:widget movies-list :grid-size 6}]])
 
 (oz/start-plot-server!)
 (render-page page-layout)
